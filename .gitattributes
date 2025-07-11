@@ -11,16 +11,13 @@
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.unitypackage filter=lfs diff=lfs merge=lfs -text
-
 # Unity YAML files with line ending normalization and Unity merge tool
 *.unity text merge=unityyamlmerge eol=lf
 *.prefab text merge=unityyamlmerge eol=lf
 *.meta text merge=unityyamlmerge eol=lf
 *.anim text merge=unityyamlmerge eol=lf
 *.asset text merge=unityyamlmerge eol=lf
-
 # C# source code files with language-aware diff
 *.cs text diff=csharp
-
 # Default to automatic text handling for all other files
 * text=auto
