@@ -31,7 +31,9 @@
 # Jetbrains Rider personal-layer settings
 *.DotSettings.user
 
-# Visual Studio cache directory
+# IDE 
+.vscode/
+.idea/
 .vs/
 
 # Gradle cache directory
@@ -54,6 +56,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.sln.iml
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -97,3 +100,11 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
