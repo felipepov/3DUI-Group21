@@ -5,7 +5,7 @@ public static class SnapToTerrain
 {
     [MenuItem("Tools/Snap Selected To Terrain")]
     private static void SnapSelectedToTerrain()
-    {
+    { 
         Terrain terrain = Terrain.activeTerrain;
         if (terrain == null)
         {
