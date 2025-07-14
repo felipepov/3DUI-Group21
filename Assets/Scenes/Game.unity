@@ -146,12 +146,12 @@ GameObject:
   - component: {fileID: 558042374}
   - component: {fileID: 558042373}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: WaterNotTeleportable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &558042373
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1311,6 +1311,6 @@ SceneRoots:
   - {fileID: 1547929913}
   - {fileID: 1538480028}
   - {fileID: 954189130}
+  - {fileID: 558042376}
   - {fileID: 543450652292553596}
   - {fileID: 1651535948}
-  - {fileID: 558042376}
