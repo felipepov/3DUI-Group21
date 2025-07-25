@@ -9,9 +9,16 @@ public class ShovelCraftingManager : MonoBehaviour
     public XRSocketInteractor socketStick;
 
     [Header("Shovel Parts")]
-    public GameObject grabShovelHandle;  // GrabShovelHandle GameObject
-    public GameObject grabShovelHead;    // GrabShovelHead GameObject
-    public GameObject grabShovelStick;   // GrabShovelStick GameObject
+    public GameObject GrabShovelHandle;  // GrabShovelHandle GameObject
+    public GameObject GrabShovelHead;    // GrabShovelHead GameObject
+    public GameObject GrabShovelStick;   // GrabShovelStick GameObject
+
+    
+    public GameObject OutlineHandle;
+    public GameObject OutlineHead;
+    public GameObject OutlineStick;
+
+
 
     [Header("Complete Shovel")]
     public GameObject grabShovel;        // GrabShovel GameObject (should be inactive initially)
@@ -59,9 +66,13 @@ public class ShovelCraftingManager : MonoBehaviour
         crafted = true;
 
         // Deactivate parts
-        grabShovelHandle.SetActive(false);
-        grabShovelHead.SetActive(false);
-        grabShovelStick.SetActive(false);
+        GrabShovelHandle.SetActive(false);
+        GrabShovelHead.SetActive(false);
+        GrabShovelStick.SetActive(false);
+
+        OutlineHandle.SetActive(false);
+        OutlineHead.SetActive(false);
+        OutlineStick.SetActive(false);
 
         // Activate completed shovel
         grabShovel.SetActive(true);
