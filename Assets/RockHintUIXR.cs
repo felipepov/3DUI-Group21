@@ -1,0 +1,114 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RockHintUIXR : MonoBehaviour
+{
+    [Header("Settings")]
+    public Transform playerHead;
+    public float triggerDistance = 3f;       // Rocks trigger distance
+    public float uiDistance = 2f;            // 2 meters in front of player
+    public float uiHeightOffset = 0.3f;      // Slightly above center
+    public float fadeDuration = 0.8f;        // Fade animation
+    public string messageText = "The path is blocked by strange glowing rocks... Something powerful must break them!";
+
+    private CanvasGroup canvasGroup;
+    private Canvas worldCanvas;
+    private Text dialogueText;
+    private bool isVisible = false;
+
+    void Start()
+    {
+        if (playerHead == null)
+        {
+            Camera mainCam = Camera.main;
+            if (mainCam != null)
+                playerHead = mainCam.transform;
+        }
+
+        CreateWorldCanvas();
+        HideInstant();
+    }
+
+    void Update()
+    {
+        if (playerHead == null) return;
+
+        float distance = Vector3.Distance(playerHead.position, transform.position);
+
+        if (distance <= triggerDistance && !isVisible)
+            StartCoroutine(FadeCanvas(0, 1)); // Fade in
+        else if (distance > triggerDistance && isVisible)
+            StartCoroutine(FadeCanvas(1, 0)); // Fade out
+
+        // ✅ Keep UI in front of player, slightly higher
+        Vector3 forwardPos = playerHead.position + playerHead.forward * uiDistance;
+        forwardPos.y += uiHeightOffset;
+        worldCanvas.transform.position = forwardPos;
+
+        // Make UI face player
+        worldCanvas.transform.LookAt(playerHead);
+        worldCanvas.transform.Rotate(0, 180f, 0);
+    }
+
+    void CreateWorldCanvas()
+    {
+        GameObject canvasGO = new GameObject("ProximityUI");
+        canvasGO.transform.SetParent(null);
+
+        worldCanvas = canvasGO.AddComponent<Canvas>();
+        worldCanvas.renderMode = RenderMode.WorldSpace;
+        worldCanvas.worldCamera = Camera.main;
+
+        canvasGO.AddComponent<GraphicRaycaster>();
+        canvasGroup = canvasGO.AddComponent<CanvasGroup>();
+        canvasGO.transform.localScale = Vector3.one * 0.005f;
+
+        // Panel
+        GameObject panelGO = new GameObject("Panel");
+        panelGO.transform.SetParent(worldCanvas.transform, false);
+
+        RectTransform panelRect = panelGO.AddComponent<RectTransform>();
+        panelRect.sizeDelta = new Vector2(420, 140);
+
+        Image panelImage = panelGO.AddComponent<Image>();
+        panelImage.color = new Color(0, 0, 0, 0.7f);
+
+        // Text
+        GameObject textGO = new GameObject("Text");
+        textGO.transform.SetParent(panelGO.transform, false);
+
+        RectTransform textRect = textGO.AddComponent<RectTransform>();
+        textRect.anchorMin = Vector2.zero;
+        textRect.anchorMax = Vector2.one;
+        textRect.offsetMin = Vector2.zero;
+        textRect.offsetMax = Vector2.zero;
+
+        dialogueText = textGO.AddComponent<Text>();
+        dialogueText.text = messageText;
+        dialogueText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        dialogueText.fontSize = 18;
+        dialogueText.alignment = TextAnchor.MiddleCenter;
+        dialogueText.color = Color.white;
+    }
+
+    IEnumerator FadeCanvas(float from, float to)
+    {
+        float elapsed = 0;
+        isVisible = to > 0;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(from, to, elapsed / fadeDuration);
+            yield return null;
+        }
+        canvasGroup.alpha = to;
+    }
+
+    void HideInstant()
+    {
+        canvasGroup.alpha = 0;
+        isVisible = false;
+    }
+}

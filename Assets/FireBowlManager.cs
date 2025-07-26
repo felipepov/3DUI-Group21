@@ -13,6 +13,8 @@ public class FireBowlManager : MonoBehaviour
         {
             ActivateFire();
             Destroy(other.gameObject);
+            GetComponent<FireMessageUIXR>().ShowMessage();
+            
         }
     }
 
