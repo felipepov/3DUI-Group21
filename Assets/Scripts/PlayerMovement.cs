@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down
 
         // Create move direction relative to player's orientation
-        Vector3 move = transform.right * moveZ + transform.forward * (-moveX);
+        Vector3 move = transform.right * moveZ + transform.forward * moveX;
 
         // Apply movement
         controller.Move(move * moveSpeed * Time.deltaTime);

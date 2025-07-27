@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    private KeyDestroyer key;
+    public KeyDestroyer key;
     public GameObject keyText;
-    private ShovelCraftingManager shovel;
+    public ShovelCraftingManager shovel;
     public GameObject shovelText;
     // Start is called before the first frame update
     void Start()
