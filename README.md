@@ -1,7 +1,6 @@
-# 3DUI-Group21 (🚧 *Working Title*)
+# 🏴‍☠️ Marooned for Gold
 
-> 📱 An Augmented Reality (AR) app built for the TUM "3D User Interfaces" course project.  
-> 🧠 This project uses Unity and Vuforia to create an interactive 3D experience using webcam-based AR.
+**Marooned for Gold** is a short, immersive VR adventure where you play as a fearless pirate captain shipwrecked on a mysterious archipelago. While your crew panics and pitches tents, your only goal is clear: **treasure**. Explore ancient ruins, wield magical artifacts, and solve environmental puzzles to uncover long-lost riches.
 
 ---
 
@@ -13,22 +12,40 @@
 
 ---
 
-## 🎮 Concept (TODO)
+## 🗺️ Levels
 
-🚧 **Working idea suggestions:**
-- AR Treasure Hunt
-- AR Repair Simulator
-- AR Puzzle Box
+### **Level 1 – Magic Rocks**
+You're blocked by a wall of jagged stone — until a mysterious glowing rock grants you the power to teleport.  
+**🧠 Mechanics:** Grab and throw magical stones to destroy obstacles and unlock new paths.
 
- *We'll update this section with a detailed description of the final project idea, including gameplay, goals, and interactions.*
+### **Level 2 – Light the Fire**
+Night falls. You light a bonfire using scattered firewood — and glowing teleportation points reveal the way forward.  
+**🔥 Mechanics:** Pick up and throw objects; trigger waypoints with fire.
+
+### **Level 3 – Craft the Shovel**
+Reunited with your crew, you craft a shovel using broken pieces found in crates.  
+**🔧 Mechanics:** Precision manipulation to assemble an essential digging tool.
+
+### **Level 4 – Find the Key**
+A rusty key sits high atop crumbling ruins. Use a ladder to climb and retrieve it.  
+**🪜 Mechanics:** Navigate the space physically, use objects to reach high places.
+
+### **Level 5 – Dig the Treasure**
+With key in hand and shovel crafted, open the chest and dig up your golden reward.  
+**💰 Mechanics:** Chain tasks together logically (unlock → collect).
 
 ---
 
-## 🧩 Features & Interactions (Planned)
+## 🎮 Controls
 
-- ✅ **Selection** of objects (via click/tap or raycast)
-- ✅ **Manipulation** (move, rotate, scale virtual objects)
-- ✅ **Wayfinding Aids** (visual hints, arrows, maps)
+> _Note: The game uses a simulator setup._
+
+- **Free Movement Mode:** Press `U` to enable movement using `W`, `A`, `S`, `D`.
+- **Switch Controller:** Press `Y` or `T` to toggle between virtual hands.
+- **Grab Object:** Hold `G` while near an object.
+- **Teleport:** While using the `Y` controller, press `W` to teleport.
+- **Grab & Move:** Grab an object (`G`), then press `U` to re-enable free movement while holding it.
+- **Release Object:** Switch back to controller mode to drop it.
 
 ---
 
@@ -44,48 +61,19 @@
 
 ---
 
-## 👥 Team Members
+## ✨ Features
 
-- Francisco
-- Beliz
-- Ferran
-- Felipe
-
----
-
-## 🚀 Running the Project (TODO)
-
-Steps to open and run:
-
-1. Open with Unity `2022.3.6f1` via Unity Hub
-2. [ ] Install required packages from Package Manager
-3. [ ] (Optional) Print AR marker and test with webcam
-4. [ ] Press ▶️ Play to simulate or test interactions
+- 🪄 Magical interactions and glowing effects
+- 🌀 Smooth teleportation to avoid motion sickness
+- 🧭 Landmarks and trails for intuitive navigation
+- 🧰 Item crafting and environmental puzzles
+- 🏝️ Rich pirate-themed world and story
 
 ---
 
-## 📹 Deliverables
-
-- [ ] Final Build (ZIP)
-- [ ] 1:30 min Trailer Video
-- [ ] GitHub Repo + Asset Credits
-
----
-
-## 📅 Timeline
-
-- 🔒 Feature Freeze: **July 14**
-- 🧪 Internal Playtest + Feedback: **July 14Assets/
-Scenes/
-Scripts/
-Prefabs/
-ARTargets/
-ProjectSettings/
-Packages/Assets/
-Scenes/
-Scripts/
-Prefabs/
-ARTargets/
-ProjectSettings/
-Packages/**
-- 🚀 Final Deliverables Due: **July 27**
+**Crew 21 – 3D User Interfaces Project**  
+Developed by:  
+Francisco Javier Hernández Fernández  
+Beliz Pehlivan  
+Ferran Sordé  
+Felipe Poviña Migliavacca
