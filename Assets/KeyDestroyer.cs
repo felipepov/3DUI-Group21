@@ -12,6 +12,7 @@ public class KeyDestroyer : MonoBehaviour
 
     void Start()
     {
+        teleportBoat.SetActive(false);
         animator = GetComponent<Animator>();
         grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectEntered.AddListener(OnGrabbed);

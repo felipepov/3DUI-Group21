@@ -13,6 +13,11 @@ public class FireBowlManager : MonoBehaviour
 
     private bool fireLit = false;
 
+    void Start()
+    {
+        teleportBoat.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Make sure your “wood” pieces are tagged “Wood”
