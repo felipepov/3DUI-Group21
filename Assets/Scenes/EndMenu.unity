@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 119478381}
   - component: {fileID: 119478380}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090251165}
-  - component: {fileID: 1090251164}
+  - component: {fileID: 1090251166}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -667,21 +667,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1090251164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090251163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708d212e1810282468144e1120834cd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 119478380}
-  optionsButton: {fileID: 0}
-  quitButton: {fileID: 1160845201}
 --- !u!4 &1090251165
 Transform:
   m_ObjectHideFlags: 0
@@ -697,6 +682,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090251166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090251163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d4c6718528b054eab630c23e28610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 119478380}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 1160845201}
 --- !u!1 &1160845199
 GameObject:
   m_ObjectHideFlags: 0
