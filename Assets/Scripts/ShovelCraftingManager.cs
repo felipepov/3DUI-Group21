@@ -1,61 +1,55 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ShovelCraftingManager : MonoBehaviour
 {
+    // 1) Declare the event
+    public static event Action OnShovelCrafted;
+
     [Header("Sockets")]
     public XRSocketInteractor socketHandle;
     public XRSocketInteractor socketHead;
     public XRSocketInteractor socketStick;
-
     [Header("Shovel Parts")]
-    public GameObject GrabShovelHandle;  // GrabShovelHandle GameObject
-    public GameObject GrabShovelHead;    // GrabShovelHead GameObject
-    public GameObject GrabShovelStick;   // GrabShovelStick GameObject
-
-    
+    public GameObject GrabShovelHandle;
+    public GameObject GrabShovelHead;
+    public GameObject GrabShovelStick;
     public GameObject OutlineHandle;
     public GameObject OutlineHead;
     public GameObject OutlineStick;
-
-
-
     [Header("Complete Shovel")]
-    public GameObject grabShovel;        // GrabShovel GameObject (should be inactive initially)
+    public GameObject grabShovel;
 
     private bool crafted = false;
 
-    private void OnEnable()
+    void OnEnable()
     {
-        socketHandle.selectEntered.AddListener(OnSocketChanged);
-        socketHead.selectEntered.AddListener(OnSocketChanged);
-        socketStick.selectEntered.AddListener(OnSocketChanged);
-
-        socketHandle.selectExited.AddListener(OnSocketChanged);
-        socketHead.selectExited.AddListener(OnSocketChanged);
-        socketStick.selectExited.AddListener(OnSocketChanged);
+        socketHandle.selectEntered.AddListener(_ => CheckCraftCondition());
+        socketHead.selectEntered.AddListener(_ => CheckCraftCondition());
+        socketStick.selectEntered.AddListener(_ => CheckCraftCondition());
+        socketHandle.selectExited.AddListener(_ => CheckCraftCondition());
+        socketHead.selectExited.AddListener(_ => CheckCraftCondition());
+        socketStick.selectExited.AddListener(_ => CheckCraftCondition());
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-        socketHandle.selectEntered.RemoveListener(OnSocketChanged);
-        socketHead.selectEntered.RemoveListener(OnSocketChanged);
-        socketStick.selectExited.RemoveListener(OnSocketChanged);
-
-        socketHandle.selectExited.RemoveListener(OnSocketChanged);
-        socketHead.selectExited.RemoveListener(OnSocketChanged);
-        socketStick.selectExited.RemoveListener(OnSocketChanged);
+        socketHandle.selectEntered.RemoveListener(_ => CheckCraftCondition());
+        socketHead.selectEntered.RemoveListener(_ => CheckCraftCondition());
+        socketStick.selectEntered.RemoveListener(_ => CheckCraftCondition());
+        socketHandle.selectExited.RemoveListener(_ => CheckCraftCondition());
+        socketHead.selectExited.RemoveListener(_ => CheckCraftCondition());
+        socketStick.selectExited.RemoveListener(_ => CheckCraftCondition());
     }
-
-    private void OnSocketChanged(SelectEnterEventArgs args) => CheckCraftCondition();
-    private void OnSocketChanged(SelectExitEventArgs args) => CheckCraftCondition();
 
     private void CheckCraftCondition()
     {
-        if (crafted)
-            return;
+        if (crafted) return;
 
-        if (socketHandle.hasSelection && socketHead.hasSelection && socketStick.hasSelection)
+        if (socketHandle.hasSelection &&
+            socketHead.hasSelection &&
+            socketStick.hasSelection)
         {
             CraftShovel();
         }
@@ -65,16 +59,18 @@ public class ShovelCraftingManager : MonoBehaviour
     {
         crafted = true;
 
-        // Deactivate parts
+        // hide parts
         GrabShovelHandle.SetActive(false);
         GrabShovelHead.SetActive(false);
         GrabShovelStick.SetActive(false);
-
         OutlineHandle.SetActive(false);
         OutlineHead.SetActive(false);
         OutlineStick.SetActive(false);
 
-        // Activate completed shovel
+        // show finished shovel
         grabShovel.SetActive(true);
+
+        // 2) Fire the event
+        OnShovelCrafted?.Invoke();
     }
 }
