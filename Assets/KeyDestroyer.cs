@@ -14,6 +14,15 @@ public class KeyDestroyer : MonoBehaviour
         grabInteractable.selectEntered.AddListener(OnGrabbed);
     }
 
+    /**void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetTrigger("PickedUp");
+            pickedUp = true;
+        }
+    }**/
+
     void OnGrabbed(SelectEnterEventArgs args)
     {
         animator.SetTrigger("PickedUp");
