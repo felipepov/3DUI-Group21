@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class KeyDestroyer : MonoBehaviour
@@ -27,12 +28,15 @@ public class KeyDestroyer : MonoBehaviour
     {
         animator.SetTrigger("PickedUp");
         pickedUp = true;
+        SceneManager.LoadScene("EndMenu", LoadSceneMode.Single);
     }
 
     void OnDestroy()
     {
         if (grabInteractable != null)
+        {
             grabInteractable.selectEntered.RemoveListener(OnGrabbed);
+        }
     }
 
     public void DeleteObject()
