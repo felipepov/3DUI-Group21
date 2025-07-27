@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class KeyPickup : MonoBehaviour
+public class KeyDestroyer : MonoBehaviour
 {
     private Animator animator;
     private XRGrabInteractable grabInteractable;
+    public bool pickedUp = false;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class KeyPickup : MonoBehaviour
     void OnGrabbed(SelectEnterEventArgs args)
     {
         animator.SetTrigger("PickedUp");
+        pickedUp = true;
     }
 
     void OnDestroy()

@@ -22,6 +22,7 @@ public class ShovelCraftingManager : MonoBehaviour
     public GameObject grabShovel;
 
     private bool crafted = false;
+    public bool isCrafted = false;
 
     void OnEnable()
     {
@@ -58,6 +59,7 @@ public class ShovelCraftingManager : MonoBehaviour
     private void CraftShovel()
     {
         crafted = true;
+        isCrafted = true;
 
         // hide parts
         GrabShovelHandle.SetActive(false);
