@@ -5569,7 +5569,6 @@ Transform:
   - {fileID: 1183317647}
   - {fileID: 2134225279}
   - {fileID: 235184214}
-  - {fileID: 1681226286}
   - {fileID: 1418338427}
   - {fileID: 2017902377}
   - {fileID: 772136066}
@@ -13093,61 +13092,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1948089903558696190, guid: a79f26c2c26a872468e9cc5925298ae7, type: 3}
   m_PrefabInstance: {fileID: 1535591475}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1681226285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1681226286}
-  - component: {fileID: 1681226287}
-  m_Layer: 0
-  m_Name: ShovelCraftingManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1681226286
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681226285}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.061, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 627403409}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1681226287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681226285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3140e1a2ec4f43c1d839392bcbc501bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  socketHandle: {fileID: 182481708}
-  socketHead: {fileID: 742236853}
-  socketStick: {fileID: 1078560182}
-  GrabShovelHandle: {fileID: 1892082521}
-  GrabShovelHead: {fileID: 1098323520}
-  GrabShovelStick: {fileID: 1998196729}
-  OutlineHandle: {fileID: 182481706}
-  OutlineHead: {fileID: 742236850}
-  OutlineStick: {fileID: 1078560180}
-  grabShovel: {fileID: 1496106589}
-  isCrafted: 0
 --- !u!1001 &1696571175
 PrefabInstance:
   m_ObjectHideFlags: 0
