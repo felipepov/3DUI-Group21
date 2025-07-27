@@ -2,13 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class KeyDestroyer : MonoBehaviour
+public class end_key : MonoBehaviour
 {
     private Animator animator;
     private XRGrabInteractable grabInteractable;
     public bool pickedUp = false;
-
-    public GameObject teleportBoat;
 
     void Start()
     {
@@ -30,7 +28,7 @@ public class KeyDestroyer : MonoBehaviour
     {
         animator.SetTrigger("PickedUp");
         pickedUp = true;
-        teleportBoat.SetActive(true);
+        SceneManager.LoadScene("EndMenu", LoadSceneMode.Single); // Load the end menu scene when the key is picked up
     }
 
     void OnDestroy()

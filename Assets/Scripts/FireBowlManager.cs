@@ -6,6 +6,8 @@ public class FireBowlManager : MonoBehaviour
     public GameObject fire;    // Ateş efekti (örn: Particle System)
     public GameObject beacon;  // Teleport alanı veya ışık işareti
 
+    public GameObject teleportBoat;
+
     [Header("Path Lights")]
     public GameObject[] lightsOnPath; // Yol üzerindeki ışık objelerini Inspector'dan atayın
 
@@ -40,6 +42,12 @@ public class FireBowlManager : MonoBehaviour
             // 4) Destroy the wood and show your UI hint
             Destroy(other.gameObject);
             GetComponent<FireMessageUIXR>()?.ShowMessage();
+
+            // 5) Teleport the boat
+            if (teleportBoat != null)
+                teleportBoat.SetActive(true);
+            else
+                Debug.LogWarning($"[{name}] No teleport boat assigned in Inspector");
         }
     }
 }
