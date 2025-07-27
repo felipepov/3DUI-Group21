@@ -1,26 +1,43 @@
-using UnityEngine;  // ← needed for MonoBehaviour, Collider, GameObject, [Header]
- 
+using UnityEngine;
+
 public class FireBowlManager : MonoBehaviour
 {
     [Header("Fire & Beacon")]
-    public GameObject fire;    // your fire‑VFX or flame object
-    public GameObject beacon;  // drag your disabled Beacon GameObject here
+    public GameObject fire;    // Ateş efekti (örn: Particle System)
+    public GameObject beacon;  // Teleport alanı veya ışık işareti
+
+    [Header("Path Lights")]
+    public GameObject[] lightsOnPath; // Yol üzerindeki ışık objelerini Inspector'dan atayın
+
+    private bool fireLit = false;
 
     void OnTriggerEnter(Collider other)
     {
         // Make sure your “wood” pieces are tagged “Wood”
-        if (other.CompareTag("Wood"))
+        if (!fireLit && other.CompareTag("Wood"))
         {
-            // 1) light the fire
-            fire.SetActive(true);
+            fireLit = true;
 
-            // 2) turn on the beacon
+            // 1) Light the fire
+            if (fire != null) fire.SetActive(true);
+
+            // 2) Turn on the beacon
             if (beacon != null)
                 beacon.SetActive(true);
             else
                 Debug.LogWarning($"[{name}] No beacon assigned in Inspector");
 
-            // 3) destroy the wood and show your UI hint
+            // 3) Enable all lights on the path
+            if (lightsOnPath != null && lightsOnPath.Length > 0)
+            {
+                foreach (GameObject lightObj in lightsOnPath)
+                {
+                    if (lightObj != null)
+                        lightObj.SetActive(true);
+                }
+            }
+
+            // 4) Destroy the wood and show your UI hint
             Destroy(other.gameObject);
             GetComponent<FireMessageUIXR>()?.ShowMessage();
         }
