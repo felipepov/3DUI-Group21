@@ -16,12 +16,16 @@ public class KeyPickup : MonoBehaviour
     void OnGrabbed(SelectEnterEventArgs args)
     {
         animator.SetTrigger("PickedUp");
-        Destroy(gameObject);
     }
 
     void OnDestroy()
     {
         if (grabInteractable != null)
             grabInteractable.selectEntered.RemoveListener(OnGrabbed);
+    }
+
+    public void DeleteObject()
+    {
+        Destroy(gameObject);
     }
 }
